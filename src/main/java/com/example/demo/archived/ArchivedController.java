@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/archived")
 
 public class ArchivedController {
@@ -26,7 +27,6 @@ public class ArchivedController {
     public Archive postArchive(@RequestBody Archive newArchive){
         return archivedService.postArchive(newArchive);
     }
-
     @PatchMapping
     public Archive patchArchive(@RequestBody Archive patchedArchive){
         Archive archive = archivedService.getOneArchive(patchedArchive.getID()).orElseThrow(IllegalArgumentException::new);

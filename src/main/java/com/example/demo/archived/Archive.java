@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 public class Archive {
     public Archive(){};
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

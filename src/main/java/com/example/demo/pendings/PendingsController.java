@@ -1,12 +1,12 @@
 package com.example.demo.pendings;
 
-import com.example.demo.archived.Archive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/pending")
 
 public class PendingsController {
@@ -16,8 +16,8 @@ public class PendingsController {
         this.pendingsService = pendingsService;
     }
     @GetMapping
-    public List<Pending> getAllPendings(){
-        return this.pendingsService.getAllPendings();
+    public List<Pending> getAllPending(){
+        return this.pendingsService.getAllPending();
     }
     @GetMapping ("/{id}")
     public Optional<Pending> getOnePending(@PathVariable int id){
@@ -37,6 +37,4 @@ public class PendingsController {
         Pending address = pendingsService.getOnePending(id).orElseThrow(IllegalArgumentException::new);
         return pendingsService.deletePending(id);
     }
-
-
 }

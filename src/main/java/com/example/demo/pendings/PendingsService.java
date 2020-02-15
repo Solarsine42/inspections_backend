@@ -1,6 +1,5 @@
 package com.example.demo.pendings;
 
-import com.example.demo.addresses.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +9,6 @@ import java.util.Optional;
 @Service
 
 public class PendingsService {
-
     @Autowired
     private final PendingsRepository pendingsRepository;
     private Object newPending;
@@ -20,7 +18,7 @@ public class PendingsService {
     public PendingsService(PendingsRepository pendingsRepository) {
         this.pendingsRepository = pendingsRepository;
     }
-    public List<Pending> getAllPendings(){
+    public List<Pending> getAllPending(){
         return this.pendingsRepository.findAll();
     }
     public Optional<Pending> getOnePending(int id){
